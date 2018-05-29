@@ -55,10 +55,11 @@
 %%
 
 
-Start:Def|Puts;
+Start:Def|Puts|Class;
 
 Def:rDef id pAbr pCrr NEWLINE TAB NEWLINE rEnd {printf("DEF");}
 Puts:rPuts SPACE comilla comilla{printf("PUTS");};
+Class:rClass SPACE id NEWLINE TAB NEWLINE rEnd {printf("CLASS");};
 
 %%
 int main(){
