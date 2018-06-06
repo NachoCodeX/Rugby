@@ -1168,7 +1168,7 @@ YY_RULE_SETUP
 case 43:
 YY_RULE_SETUP
 #line 102 "index.l"
-
+{return COLON;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP

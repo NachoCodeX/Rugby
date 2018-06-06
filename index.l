@@ -99,7 +99,7 @@ numeros     [0-9]+
 "@"+{letras}({letras}|{numeros}|_)*            {return VarI;}
 "="                                            {return EQUAL;}
 {numeros}                                      {return NUMBER;}
-","
+","                                            {return COLON;}
 " "                                            {;}
 [\t\n]                                         {;}
 <<EOF>>                                        {;}
