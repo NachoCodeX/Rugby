@@ -57,22 +57,16 @@
 %%
 
 
-<<<<<<< HEAD
-Start:Def|Puts|Class;
-
-Def:rDef id pAbr pCrr NEWLINE TAB NEWLINE rEnd {printf("DEF");}
-Puts:rPuts SPACE comilla comilla{printf("PUTS");};
-Class:rClass SPACE id NEWLINE TAB NEWLINE rEnd {printf("CLASS");};
-=======
 Start: Def | Puts | Class | Variables;
 
 Class:rClass id Method rEnd ; 
 
 
-Def:rDef  id pAbr pCrr  Puts  rEnd; 
+Def:rDef  id pAbr Parameter pCrr  Puts  rEnd; 
             |
-    rDef  id pAbr pCrr  Variables  rEnd;
+    rDef  id pAbr Parameter pCrr  Variables  rEnd;
 
+Parameter:Parameter COLON id | id;
 
 Method:Method Def | Def;
 
@@ -89,7 +83,6 @@ Variables:
 
 Types:STRING | NUMBER| CODE;
 
->>>>>>> newversion
 
 %%
 
