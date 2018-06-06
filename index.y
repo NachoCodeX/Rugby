@@ -39,29 +39,60 @@
 %token      rWhen       35
 %token      rWhile      36
 %token      rYield      37
-%token      NEWLINE     38
 %token      rPuts       39
 %token      id          40
 %token      pAbr        41
 %token      pCrr        42
-%token      TAB         43
-%token      comilla     44
-%token      SPACE       45
-
-
+%token      QUOTE       44
+%token      STRING      46
+%token      VarI        47
+%token      VarC        48
+%token      EQUAL       49
+%token      NUMBER      50
+%token      COLON       51
+%token      CODE        52
 
 %start Start
 
 %%
 
 
+<<<<<<< HEAD
 Start:Def|Puts|Class;
 
 Def:rDef id pAbr pCrr NEWLINE TAB NEWLINE rEnd {printf("DEF");}
 Puts:rPuts SPACE comilla comilla{printf("PUTS");};
 Class:rClass SPACE id NEWLINE TAB NEWLINE rEnd {printf("CLASS");};
+=======
+Start: Def | Puts | Class | Variables;
+
+Class:rClass id Method rEnd ; 
+
+
+Def:rDef  id pAbr pCrr  Puts  rEnd; 
+            |
+    rDef  id pAbr pCrr  Variables  rEnd;
+
+
+Method:Method Def | Def;
+
+Puts:rPuts  STRING;
+
+Variables:
+          Start Variables COLON id EQUAL Types;  
+          | 
+          id  EQUAL  Types; 
+          | 
+          VarI EQUAL Types;
+          | 
+          VarC EQUAL Types ;
+
+Types:STRING | NUMBER| CODE;
+
+>>>>>>> newversion
 
 %%
-int main(){
+
+int main(){    
     yyparse();
 }

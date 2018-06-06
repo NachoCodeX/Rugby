@@ -35,63 +35,74 @@
     #define     rWhen       35
     #define     rWhile      36
     #define     rYield      37
-
-    #define     NEWLINE     38
     #define     rPuts       39
     #define     id          40
     #define     pAbr        41
     #define     pCrr        42
     #define     TAB         43
-    #define     comilla     44
-    #define     SPACE       45
+    #define     QUOTE       44
+    #define     STRING      46
+    #define     VarI        47
+    #define     VarC        48
+    #define     EQUAL       49
+    #define     NUMBER      50
+    #define     COLON       51
+    #define     CODE        52
+    #define     ERROR       53
 %}
-letras  [a-zA-Z]+
-numeros  [0-9]+
+letras      [a-zA-Z]+
+alphabet    .*  
+numeros     [0-9]+
 %%
 
-begin     {return rBegin;}
-alias     {return rAlias;}
-and       {return rAnd;}
-break     {return rBreak;}
-case      {return rCase;}
-class     {return rClass;}
-def       {return rDef;}
-defined   {return rDefined;}
-do        {return rDo;}
-else      {return rElse;}
-elsif     {return rElsif;}
-end       {return rEnd;}
-ensure    {return rEnsure;}
-false     {return rFalse;}
-for       {return rFor;}
-if        {return rIf;}
-module    {return rModule;}
-next      {return rNext;}
-nil       {return rNil;}
-not       {return rNot;}
-or        {return rOr;}
-retry     {return rRetry;}
-return    {return rReturn;}
-self      {return rSelf;}
-super     {return rSuper;}
-puts     {return rPuts;}
-then      {return rThen;}
-true      {return rTrue;}
-undef     {return rUndef;}
-unless    {return rUnless;}
-until     {return rUntil;}
-when      {return rWhen;}
-while     {return rWhile;}
-yield     {return rYield;}
-"\n"      {return NEWLINE;}
-"\t"      {return TAB;}
-"("       {return pAbr;}
-")"       {return pCrr;}
-"\""      {return comilla;}
-" "       {return SPACE;}
+"begin"                                        {return rBegin;}
+"alias"                                        {return rAlias;}
+"and"                                          {return rAnd;}
+"break"                                        {return rBreak;}
+"case"                                         {return rCase;}
+"class"                                        {return rClass;}
+"def"                                          {return rDef;}
+"defined"                                      {return rDefined;}
+"do"                                           {return rDo;}
+"else"                                         {return rElse;}
+"elsif"                                        {return rElsif;}
+"end"                                          {return rEnd;}
+"ensure"                                       {return rEnsure;}
+"false"                                        {return rFalse;}
+"for"                                          {return rFor;}
+"if"                                           {return rIf;}
+"module"                                       {return rModule;}
+"next"                                         {return rNext;}
+"nil"                                          {return rNil;}
+"not"                                          {return rNot;}
+"or"                                           {return rOr;}
+"retry"                                        {return rRetry;}
+"return"                                       {return rReturn;}
+"self"                                         {return rSelf;}
+"super"                                        {return rSuper;}
+"puts"                                         {return rPuts;}
+"then"                                         {return rThen;}
+"true"                                         {return rTrue;}
+"undef"                                        {return rUndef;}
+"unless"                                       {return rUnless;}
+"until"                                        {return rUntil;}
+"when"                                         {return rWhen;}
+"while"                                        {return rWhile;}
+"yield"                                        {return rYield;}
+{letras}({letras}|{numeros}|_)*                {return id;}
+"("                                            {return pAbr;}
+")"                                            {return pCrr;}
 
+"\""+{alphabet}+("\"")                         {return STRING;}
 
-{letras}({letras}|{numeros}|_)*     {return id;}
-
+"@@"+{letras}({letras}|{numeros}|_)*           {return VarC;}
+"@"+{letras}({letras}|{numeros}|_)*            {return VarI;}
+"="                                            {return EQUAL;}
+{numeros}                                      {return NUMBER;}
+","
+" "                                            {;}
+[\t\n]                                         {;}
+<<EOF>>                                        {;}
+.                                              {return ERROR;}
 
 %%
