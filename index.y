@@ -43,14 +43,14 @@
 %token      id          40
 %token      pAbr        41
 %token      pCrr        42
-%token      QUOTE      44
-%token      ALPHABET    46
+%token      QUOTE       44
+%token      STRING      46
 %token      VarI        47
 %token      VarC        48
 %token      EQUAL       49
 %token      NUMBER      50
 %token      COLON       51
-%token      CODE       52
+%token      CODE        52
 
 %start Start
 
@@ -62,14 +62,14 @@ Start: Def | Puts | Class | Variables;
 Class:rClass id Method rEnd ; 
 
 
-Def:rDef  id  Puts  rEnd; 
+Def:rDef  id pAbr pCrr  Puts  rEnd; 
             |
-    rDef  id Variables  rEnd;
+    rDef  id pAbr pCrr  Variables  rEnd;
 
 
 Method:Method Def | Def;
 
-Puts:rPuts  ALPHABET;
+Puts:rPuts  STRING;
 
 Variables:
           Start Variables COLON id EQUAL Types;  
@@ -80,7 +80,7 @@ Variables:
           | 
           VarC EQUAL Types ;
 
-Types:ALPHABET | NUMBER| CODE;
+Types:STRING | NUMBER| CODE;
 
 
 %%
