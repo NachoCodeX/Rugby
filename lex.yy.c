@@ -663,8 +663,6 @@ char *yytext;
     #define     rWhen       35
     #define     rWhile      36
     #define     rYield      37
-
-    #define     NEWLINE     38
     #define     rPuts       39
     #define     id          40
     #define     pAbr        41
@@ -679,7 +677,7 @@ char *yytext;
     #define     NUMBER      50
     #define     COLON       51
     #define     CODE        52
-#line 683 "lex.yy.c"
+#line 681 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -897,10 +895,10 @@ YY_DECL
 		}
 
 	{
-#line 58 "index.l"
+#line 56 "index.l"
 
 
-#line 904 "lex.yy.c"
+#line 902 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -959,241 +957,241 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 60 "index.l"
+#line 58 "index.l"
 {return rBegin;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 61 "index.l"
+#line 59 "index.l"
 {return rAlias;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 62 "index.l"
+#line 60 "index.l"
 {return rAnd;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 63 "index.l"
+#line 61 "index.l"
 {return rBreak;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 64 "index.l"
+#line 62 "index.l"
 {return rCase;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 65 "index.l"
+#line 63 "index.l"
 {return rClass;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 66 "index.l"
+#line 64 "index.l"
 {return rDef;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 67 "index.l"
+#line 65 "index.l"
 {return rDefined;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 68 "index.l"
+#line 66 "index.l"
 {return rDo;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 69 "index.l"
+#line 67 "index.l"
 {return rElse;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 70 "index.l"
+#line 68 "index.l"
 {return rElsif;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 71 "index.l"
+#line 69 "index.l"
 {return rEnd;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 72 "index.l"
+#line 70 "index.l"
 {return rEnsure;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 73 "index.l"
+#line 71 "index.l"
 {return rFalse;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 74 "index.l"
+#line 72 "index.l"
 {return rFor;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 75 "index.l"
+#line 73 "index.l"
 {return rIf;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 76 "index.l"
+#line 74 "index.l"
 {return rModule;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 77 "index.l"
+#line 75 "index.l"
 {return rNext;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 78 "index.l"
+#line 76 "index.l"
 {return rNil;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 79 "index.l"
+#line 77 "index.l"
 {return rNot;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 80 "index.l"
+#line 78 "index.l"
 {return rOr;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 81 "index.l"
+#line 79 "index.l"
 {return rRetry;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 82 "index.l"
+#line 80 "index.l"
 {return rReturn;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 83 "index.l"
+#line 81 "index.l"
 {return rSelf;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 84 "index.l"
+#line 82 "index.l"
 {return rSuper;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 85 "index.l"
+#line 83 "index.l"
 {return rPuts;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 86 "index.l"
+#line 84 "index.l"
 {return rThen;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 87 "index.l"
+#line 85 "index.l"
 {return rTrue;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 88 "index.l"
+#line 86 "index.l"
 {return rUndef;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 89 "index.l"
+#line 87 "index.l"
 {return rUnless;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 90 "index.l"
+#line 88 "index.l"
 {return rUntil;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 91 "index.l"
+#line 89 "index.l"
 {return rWhen;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 92 "index.l"
+#line 90 "index.l"
 {return rWhile;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 93 "index.l"
+#line 91 "index.l"
 {return rYield;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 94 "index.l"
+#line 92 "index.l"
 {return id;}
 	YY_BREAK
 case 36:
 /* rule 36 can match eol */
 YY_RULE_SETUP
-#line 95 "index.l"
-{return NEWLINE;}
+#line 93 "index.l"
+{;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 96 "index.l"
+#line 94 "index.l"
 {return TAB;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 97 "index.l"
+#line 95 "index.l"
 {return pAbr;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 98 "index.l"
+#line 96 "index.l"
 {return pCrr;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 99 "index.l"
+#line 97 "index.l"
 {return ALPHABET;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 100 "index.l"
+#line 98 "index.l"
 {return SPACE;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 101 "index.l"
+#line 99 "index.l"
 {return VarC;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 102 "index.l"
+#line 100 "index.l"
 {return VarI;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 103 "index.l"
+#line 101 "index.l"
 {return EQUAL;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 104 "index.l"
+#line 102 "index.l"
 {return NUMBER;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 105 "index.l"
-{return COLON;}
+#line 103 "index.l"
+
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 109 "index.l"
+#line 107 "index.l"
 ECHO;
 	YY_BREAK
-#line 1197 "lex.yy.c"
+#line 1195 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2194,6 +2192,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 109 "index.l"
+#line 107 "index.l"
 
 

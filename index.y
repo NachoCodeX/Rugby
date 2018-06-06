@@ -39,7 +39,6 @@
 %token      rWhen       35
 %token      rWhile      36
 %token      rYield      37
-%token      NEWLINE     38
 %token      rPuts       39
 %token      id          40
 %token      pAbr        41
@@ -62,22 +61,32 @@
 
 Start: Def | Puts | Class | Variables;
 
-Class:rClass SPACE id NEWLINE TAB Method rEnd NEWLINE;
+Class:rClass SPACE id  TAB Method rEnd ; 
 
 
-Def:rDef SPACE id NEWLINE TABS Puts NEWLINE TABS rEnd NEWLINE | rDef SPACE id NEWLINE TABS NEWLINE  TABS rEnd NEWLINE | rDef SPACE id NEWLINE TABS Puts NEWLINE  rEnd NEWLINE| rDef SPACE id NEWLINE TABS NEWLINE  rEnd NEWLINE;
-
-
-
+Def:rDef SPACE id TABS Puts TABS rEnd; 
+            | 
+    rDef SPACE id TABS Puts rEnd; 
+            | 
+    rDef SPACE id TABS  Variables TABS rEnd; 
+            | 
+    rDef SPACE id TABS Variables  rEnd;
 
 TABS:TABS TAB | TAB ;
 
 
-Method:Method Def | Def;
+Method:Method Def | TABS Def |Def;
 
 Puts:rPuts SPACE ALPHABET;
 
-Variables:Start Variables COLON id EQUAL Types NEWLINE | id  EQUAL  Types NEWLINE | VarI EQUAL Types NEWLINE | VarC EQUAL Types NEWLINE;
+Variables:
+          Start Variables COLON id EQUAL Types;  
+          | 
+          id  EQUAL  Types; 
+          | 
+          VarI EQUAL Types;
+          | 
+          VarC EQUAL Types ;
 
 Types:ALPHABET | NUMBER| CODE;
 

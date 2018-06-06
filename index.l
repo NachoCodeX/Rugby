@@ -35,8 +35,6 @@
     #define     rWhen       35
     #define     rWhile      36
     #define     rYield      37
-
-    #define     NEWLINE     38
     #define     rPuts       39
     #define     id          40
     #define     pAbr        41
@@ -92,7 +90,7 @@ numeros     [0-9]+
 "while"                                          {return rWhile;}
 "yield"                                          {return rYield;}
 {letras}({letras}|{numeros}|_)*                  {return id;}
-"\n"                                           {return NEWLINE;}
+"\n"                                           {;}
 "\t"                                           {return TAB;}
 "("                                            {return pAbr;}
 ")"                                            {return pCrr;}
@@ -102,7 +100,7 @@ numeros     [0-9]+
 "@"+{letras}({letras}|{numeros}|_)*            {return VarI;}
 "="                                            {return EQUAL;}
 {numeros}                                      {return NUMBER;}
-","                                            {return COLON;}
+","
 
 
 
