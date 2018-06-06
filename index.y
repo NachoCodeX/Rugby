@@ -43,9 +43,7 @@
 %token      id          40
 %token      pAbr        41
 %token      pCrr        42
-%token      TAB         43
 %token      QUOTE      44
-%token      SPACE       45
 %token      ALPHABET    46
 %token      VarI        47
 %token      VarC        48
@@ -61,23 +59,17 @@
 
 Start: Def | Puts | Class | Variables;
 
-Class:rClass SPACE id  TAB Method rEnd ; 
+Class:rClass id Method rEnd ; 
 
 
-Def:rDef SPACE id TABS Puts TABS rEnd; 
-            | 
-    rDef SPACE id TABS Puts rEnd; 
-            | 
-    rDef SPACE id TABS  Variables TABS rEnd; 
-            | 
-    rDef SPACE id TABS Variables  rEnd;
-
-TABS:TABS TAB | TAB ;
+Def:rDef  id  Puts  rEnd; 
+            |
+    rDef  id Variables  rEnd;
 
 
-Method:Method Def | TABS Def |Def;
+Method:Method Def | Def;
 
-Puts:rPuts SPACE ALPHABET;
+Puts:rPuts  ALPHABET;
 
 Variables:
           Start Variables COLON id EQUAL Types;  
@@ -92,6 +84,7 @@ Types:ALPHABET | NUMBER| CODE;
 
 
 %%
-int main(){
+
+int main(){    
     yyparse();
 }

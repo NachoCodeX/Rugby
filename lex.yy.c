@@ -386,21 +386,21 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[157] =
     {   0,
-        0,    0,   48,   47,   37,   36,   41,   47,   38,   39,
-       46,   45,   44,   47,   35,   35,   35,   35,   35,   35,
+        0,    0,   48,   46,   36,   36,   40,   46,   37,   38,
+       45,   44,   43,   46,   35,   35,   35,   35,   35,   35,
        35,   35,   35,   35,   35,   35,   35,   35,   35,   35,
-       35,   35,    0,   40,   45,    0,   43,   35,   35,   35,
+       35,   35,    0,   39,   44,    0,   42,   35,   35,   35,
        35,   35,   35,   35,   35,   35,   35,    9,   35,   35,
        35,   35,   16,   35,   35,   35,   35,   21,   35,   35,
-       35,   35,   35,   35,   35,   35,   35,   40,    0,   42,
-       43,   43,   43,   35,   35,    3,   35,   35,   35,   35,
+       35,   35,   35,   35,   35,   35,   35,   39,    0,   41,
+       42,   42,   42,   35,   35,    3,   35,   35,   35,   35,
         7,   35,   12,   35,   35,   15,   35,   35,   19,   20,
        35,   35,   35,   35,   35,   35,   35,   35,   35,   35,
 
-       35,   35,   42,   42,   42,   43,   35,   35,   35,    5,
+       35,   35,   41,   41,   41,   42,   35,   35,   35,    5,
        35,   35,   10,   35,   35,   35,   35,   18,   26,   35,
        35,   24,   35,   27,   28,   35,   35,   35,   32,   35,
-       35,   42,    2,    1,    4,    6,   35,   11,   35,   14,
+       35,   41,    2,    1,    4,    6,   35,   11,   35,   14,
        35,   22,   35,   25,   29,   35,   31,   33,   34,   35,
        13,   17,   23,   30,    8,    0
     } ;
@@ -669,7 +669,6 @@ char *yytext;
     #define     pCrr        42
     #define     TAB         43
     #define     QUOTE       44
-    #define     SPACE       45
     #define     ALPHABET    46
     #define     VarI        47
     #define     VarC        48
@@ -677,6 +676,7 @@ char *yytext;
     #define     NUMBER      50
     #define     COLON       51
     #define     CODE        52
+    #define     ERROR       53
 #line 681 "lex.yy.c"
 
 #define INITIAL 0
@@ -1139,61 +1139,63 @@ YY_RULE_SETUP
 case 37:
 YY_RULE_SETUP
 #line 94 "index.l"
-{return TAB;}
+{return pAbr;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
 #line 95 "index.l"
-{return pAbr;}
+{return pCrr;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
 #line 96 "index.l"
-{return pCrr;}
+{return ALPHABET;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
 #line 97 "index.l"
-{return ALPHABET;}
+{;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
 #line 98 "index.l"
-{return SPACE;}
+{return VarC;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
 #line 99 "index.l"
-{return VarC;}
+{return VarI;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
 #line 100 "index.l"
-{return VarI;}
+{return EQUAL;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
 #line 101 "index.l"
-{return EQUAL;}
+{return NUMBER;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
 #line 102 "index.l"
-{return NUMBER;}
+
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
 #line 103 "index.l"
-
+{return ERROR;}
+	YY_BREAK
+case YY_STATE_EOF(INITIAL):
+#line 104 "index.l"
+{;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 107 "index.l"
+#line 106 "index.l"
 ECHO;
 	YY_BREAK
-#line 1195 "lex.yy.c"
-case YY_STATE_EOF(INITIAL):
-	yyterminate();
+#line 1199 "lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2192,6 +2194,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 107 "index.l"
+#line 106 "index.l"
 
 

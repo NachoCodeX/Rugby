@@ -41,7 +41,6 @@
     #define     pCrr        42
     #define     TAB         43
     #define     QUOTE       44
-    #define     SPACE       45
     #define     ALPHABET    46
     #define     VarI        47
     #define     VarC        48
@@ -49,6 +48,7 @@
     #define     NUMBER      50
     #define     COLON       51
     #define     CODE        52
+    #define     ERROR       53
 %}
 letras      [a-zA-Z]+
 alphabet    .*  
@@ -90,18 +90,17 @@ numeros     [0-9]+
 "while"                                          {return rWhile;}
 "yield"                                          {return rYield;}
 {letras}({letras}|{numeros}|_)*                  {return id;}
-"\n"                                           {;}
-"\t"                                           {return TAB;}
+[\t\n]                                           {;}
 "("                                            {return pAbr;}
 ")"                                            {return pCrr;}
 "\""+{alphabet}+"\""                            {return ALPHABET;}
-" "                                            {return SPACE;}
+" "                                            {;}
 "@@"+{letras}({letras}|{numeros}|_)*           {return VarC;}
 "@"+{letras}({letras}|{numeros}|_)*            {return VarI;}
 "="                                            {return EQUAL;}
 {numeros}                                      {return NUMBER;}
 ","
-
-
+.                                               {return ERROR;}
+<<EOF>>                                         {;}
 
 %%
