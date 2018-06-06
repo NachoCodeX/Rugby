@@ -45,20 +45,42 @@
 %token      pAbr        41
 %token      pCrr        42
 %token      TAB         43
-%token      comilla     44
+%token      QUOTE      44
 %token      SPACE       45
-
-
+%token      ALPHABET    46
+%token      VarI        47
+%token      VarC        48
+%token      EQUAL       49
+%token      NUMBER      50
+%token      COLON       51
+%token      CODE       52
 
 %start Start
 
 %%
 
 
-Start:Def|Puts;
+Start: Def | Puts | Class | Variables;
 
-Def:rDef id pAbr pCrr NEWLINE TAB NEWLINE rEnd {printf("DEF");}
-Puts:rPuts SPACE comilla comilla{printf("PUTS");};
+Class:rClass SPACE id NEWLINE TAB Method rEnd NEWLINE;
+
+
+Def:rDef SPACE id NEWLINE TABS Puts NEWLINE TABS rEnd NEWLINE | rDef SPACE id NEWLINE TABS NEWLINE  TABS rEnd NEWLINE | rDef SPACE id NEWLINE TABS Puts NEWLINE  rEnd NEWLINE| rDef SPACE id NEWLINE TABS NEWLINE  rEnd NEWLINE;
+
+
+
+
+TABS:TABS TAB | TAB ;
+
+
+Method:Method Def | Def;
+
+Puts:rPuts SPACE ALPHABET;
+
+Variables:Start Variables COLON id EQUAL Types NEWLINE | id  EQUAL  Types NEWLINE | VarI EQUAL Types NEWLINE | VarC EQUAL Types NEWLINE;
+
+Types:ALPHABET | NUMBER| CODE;
+
 
 %%
 int main(){
